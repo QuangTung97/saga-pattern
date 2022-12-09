@@ -41,6 +41,8 @@ Mình đã từng gặp rất nhiều trường hợp hiểu sai rằng khi gọ
 3) Trong quá trình thread trước đó đang gọi remote service, một thread khác thực hiện update version lên = 2
    và sau đó cũng thực hiện gọi sang cùng remote service với version = 2
 
+![Saga Ordering](./images/saga-ordering.png "Saga Ordering")
+
 Có người sẽ nghĩ rằng remote service sẽ chắc chắn cũng ghi nhận version = 2 nhưng mà giả định đó là sai.
 Vì khi thread đầu tiên gọi remote service có thể request đó bị delay ở network, có thể quá trình
 load balance làm request đầu tiên đến được một instance mà đang chạy GC lâu, hoặc tương tự.
