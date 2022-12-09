@@ -22,6 +22,8 @@ những API chỉ đọc (readonly) trong bài này.
 * Loại lỗi **transient**: là những loại lỗi còn lại, ví dụ lỗi mạng,
   lỗi không kết nối được database, lỗi request timeout,...
 
+![Saga Transient Error](./images/saga-error.png "Saga Transient Error")
+
 Có nhiều người thường bị nhầm lẫn lỗi mạng hay lỗi kết nối vào database là đầu nhận (**callee**) đã không
 nhận được request nhưng điều đó là sai lầm vì đầu nhận (**callee**) hoàn toàn có thể
 ghi nhận request và trong quá trình response service bị sập, network bị timeout do thời gian xử lý lâu.
