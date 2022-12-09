@@ -58,6 +58,8 @@ chất Atomicity cho 2 service đơn giản (và có phần không đúng với 
   để trừ số lượng tồn kho của sản phẩm.
 * **Inventory Service**: đầu nhận request từ phía Order Service, quản lý số lượng tồn kho.
 
+![Problem Model](./images/problem-model.png "Problem Model")
+
 Đầu Order Service sẽ có một API là Create Order API, đầu Inventory Service sẽ có 2 API là
 Reserve Product Quantity và Cancel Reserve Product Quantity. Hai API này sử dụng chung một giá
 trị **request_id** giữa API Reserve và API Cancel của cùng một Flow để Inventory xác định dữ liệu Cancel là gì.
@@ -67,7 +69,7 @@ và thực hiện update trên Inventory Service. Tính chất Atomicity mà thu
 là phải đảm bảo:
 
 * Hoặc là cả 2 service đều ghi nhận thành công
-* Hoặc là cả 2 service đều không ghi nhận dữ liệu hoặc ghi nhận dữ liệu với trạng thái là Cancelled.
+* Hoặc là cả 2 service đều không ghi nhận dữ liệu hoặc ghi nhận dữ liệu với trạng thái là **Cancelled**.
 
 ### Thuật toán thứ nhất (thuật toán sai)
 
